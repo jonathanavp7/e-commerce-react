@@ -1,12 +1,14 @@
 import React from 'react';
 import Layout from '../../Components/Layout';
+import { UserCircleIcon } from '@heroicons/react/24/solid';
 import './styles.css'
 
 function SignIn() {
   return (
     <Layout>
-      <div className='flex justify-center items-center w-80 relative mb-8'>
+      <div className='flex flex-col justify-center items-center w-80 relative mb-8'>
         <h2 className='m-10 font-semibold text-xl'>Sign in to your account</h2>
+        <UserCircleIcon className='w-12 h-12' />
       </div>
 
       <form className="form">
