@@ -39,7 +39,6 @@ export const ShoppingCartProvider = ({ children }) => {
     const openProductDetail = () => SetIsProductDetailOpen(true)
     const closeProductDetail = () => SetIsProductDetailOpen(false)
 
-
     // Checkout Side Menu - Open/Close
     const [isCheckoutSideMenuOpen, SetIsCheckoutSideMenuOpen] = useState(false)
     const openCheckoutSideMenu = () => SetIsCheckoutSideMenuOpen(true)
@@ -68,6 +67,9 @@ export const ShoppingCartProvider = ({ children }) => {
 
     // Search by category
     const [searchByCategory, setSearchByCategory] = useState(null)
+
+    // Loading 
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
       fetch('https://api.escuelajs.co/api/v1/products/')
@@ -141,6 +143,8 @@ export const ShoppingCartProvider = ({ children }) => {
             setAccount,
             signOut,
             setSignOut,
+            loading,
+            setLoading,
         }}>
             {children}
         </ShoppingCartContext.Provider>

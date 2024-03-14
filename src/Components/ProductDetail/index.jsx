@@ -7,7 +7,7 @@ function ProductDetail() {
   const context = useContext(ShoppingCartContext)
 
   return (
-    <aside className={ `${context.isProductDetailOpen ? 'flex' : 'hidden' } flex-col fixed right-0 top-0 z-20 border bg-white shadow-2xl w-[380px] h-[100vh]`}>
+    <aside className={ `${context.isProductDetailOpen ? 'flex' : 'hidden' } flex-col fixed right-0 top-0 z-20 border bg-white shadow-2xl w-[380px] h-[650px] overflow-y-scroll`}>
         <div className='flex justify-between items-center p-6'>
             <h2 className='font-medium text-xl'>Detail</h2>
             <XMarkIcon onClick={() => context.closeProductDetail()} className='w-6 h-6 cursor-pointer' />

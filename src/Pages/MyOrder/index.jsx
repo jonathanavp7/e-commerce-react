@@ -15,11 +15,11 @@ function MyOrder() {
   return (
     <Layout>
 
-      <div className='flex justify-center items-center w-80 relative'>
+      <div className='flex justify-center items-center w-80 mt-5 relative'>
         <Link to='/my-orders' className='absolute left-0'>
           <ChevronLeftIcon className='h-6 w-6 cursor-pointer' />
         </Link>
-        <h2>My Order</h2>
+        <h2 className='m-5 font-semibold text-xl'>My Orders</h2>
       </div>
 
       <div className='flex flex-col w-80 mt-6'>

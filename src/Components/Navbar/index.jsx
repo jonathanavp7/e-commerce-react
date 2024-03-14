@@ -1,8 +1,8 @@
 import { useContext, useEffect } from "react";
 import { NavLink } from "react-router-dom"
 import { ShoppingCartContext } from "../../Context";
-import { ShoppingBagIcon } from '@heroicons/react/24/solid'
 import ShoppingCart from "../../Components/ShoppingCart";
+import { Bars3Icon } from "@heroicons/react/24/solid";
 
 function Navbar() {
     const context = useContext(ShoppingCartContext)
@@ -44,14 +44,105 @@ function Navbar() {
         };
     }, []);
 
-    const renderView = () => {
+    const renderCategories = () => {
         if (hasUserAnAccount && !isUserSignOut) {
             return (
                 <>
-                    <li className="text-black/60">
+                    <li className="font-semibold text-xl me-3">
+                        <NavLink to={`${isUserSignOut ? '/sign-in' : '/'}`}>
+                            Jona<span className="text-indigo-600">Store</span>
+                        </NavLink>
+                    </li>
+                    <li className="mt-1 max-md:hidden">
+                        <NavLink
+                            to='/all'
+                            onClick={() => context.setSearchByCategory()}
+                            className={({ isActive }) =>
+                                isActive ? activeStyle : undefined
+                            }
+                        >
+                            All
+                        </NavLink>
+                    </li>
+                    <li className="mt-1 max-md:hidden">
+                        <NavLink
+                            to='/clothes'
+                            onClick={() => context.setSearchByCategory('clothes')}
+                            className={({ isActive }) =>
+                                isActive ? activeStyle : undefined
+                            }
+                        >
+                            Clothes
+                        </NavLink>
+                    </li>
+                    <li className="mt-1 max-md:hidden">
+                        <NavLink
+                            to='/electronics'
+                            onClick={() => context.setSearchByCategory('electronics')}
+                            className={({ isActive }) =>
+                                isActive ? activeStyle : undefined
+                            }
+                        >
+                            Electronics
+                        </NavLink>
+                    </li>
+                    <li className="mt-1 max-md:hidden">
+                        <NavLink
+                            to='/furniture'
+                            onClick={() => context.setSearchByCategory('furniture')}
+                            className={({ isActive }) =>
+                                isActive ? activeStyle : undefined
+                            }
+                        >
+                            Furnitures
+                        </NavLink>
+                    </li>
+                    <li className="mt-1 max-md:hidden">
+                        <NavLink
+                            to='/toys'
+                            onClick={() => context.setSearchByCategory('toys')}
+                            className={({ isActive }) =>
+                                isActive ? activeStyle : undefined
+                            }
+                        >
+                            Toys
+                        </NavLink>
+                    </li>
+                    <li className="mt-1 max-md:hidden">
+                        <NavLink
+                            to='/others'
+                            onClick={() => context.setSearchByCategory('others')}
+                            className={({ isActive }) =>
+                                isActive ? activeStyle : undefined
+                            }
+                        >
+                            Others
+                        </NavLink>
+                    </li>
+                </>
+            )
+        } else {
+            return (
+                <>
+                    <li className="font-semibold text-xl">
+                        <NavLink to={`${isUserSignOut ? '/sign-in' : '/'}`}>
+                            Jona<span className="text-indigo-600">Store</span>
+                        </NavLink>
+                    </li>
+                </>
+            )
+        }
+    }
+
+    const renderView = () => {
+
+        if (hasUserAnAccount && !isUserSignOut) {
+            return (
+                <>
+                    <li className="text-black/60 max-md:hidden">
                         {parsedAccount?.email}
                     </li>
-                    <li>
+                    <li className="max-md:hidden">
                         <NavLink
                             to='/my-orders'
                             className={({ isActive }) =>
@@ -61,7 +152,7 @@ function Navbar() {
                             My Orders
                         </NavLink>
                     </li>
-                    <li>
+                    <li className="max-md:hidden">
                         <NavLink
                             to='/my-account'
                             className={({ isActive }) =>
@@ -71,7 +162,7 @@ function Navbar() {
                             My Account
                         </NavLink>
                     </li>
-                    <li>
+                    <li className="max-md:hidden">
                         <NavLink
                             to='/sign-in'
                             className={({ isActive }) =>
@@ -82,6 +173,12 @@ function Navbar() {
                             Sign out
                         </NavLink>
                     </li>
+                    <li className="flex items-center gap-3 cursor-pointer md:hidden">
+                        <Bars3Icon className="w-6 h-6 text-black" />
+                    </li>
+                    <li onClick={() => context.openCheckoutSideMenu()} className="flex items-center gap-3 cursor-pointer">
+                        <ShoppingCart />
+                    </li>
                 </>
             )
         } else {
@@ -89,9 +186,7 @@ function Navbar() {
                 <li>
                     <NavLink
                         to='/sign-in'
-                        className={({ isActive }) =>
-                            isActive ? activeStyle : undefined
-                        }
+                        className='bg-black text-white p-2 rounded-lg px-3'
                         onClick={() => handleSignOut()}
                     >
                         Sign in
@@ -102,85 +197,12 @@ function Navbar() {
     }
 
     return (
-        <nav className={`${context.isScrolled ? 'shadow-lg' : ''} flex justify-between items-center fixed top-0 z-10 w-full py-5 px-10 text-sm font-normal bg-white`}>
+        <nav className={`${context.isScrolled ? 'shadow-lg' : ''} flex justify-between items-center fixed top-0 z-10 w-full py-5 px-14 text-sm font-normal bg-white`}>
             <ul className="flex items-center gap-5">
-                <li className="font-semibold text-lg">
-                    <NavLink to={`${isUserSignOut ? '/sign-in' : '/'}`}>
-                        JonaStore
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink
-                        to='/all'
-                        onClick={() => context.setSearchByCategory()}
-                        className={({ isActive }) =>
-                            isActive ? activeStyle : undefined
-                        }
-                    >
-                        All
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink
-                        to='/clothes'
-                        onClick={() => context.setSearchByCategory('clothes')}
-                        className={({ isActive }) =>
-                            isActive ? activeStyle : undefined
-                        }
-                    >
-                        Clothes
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink
-                        to='/electronics'
-                        onClick={() => context.setSearchByCategory('electronics')}
-                        className={({ isActive }) =>
-                            isActive ? activeStyle : undefined
-                        }
-                    >
-                        Electronics
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink
-                        to='/furniture'
-                        onClick={() => context.setSearchByCategory('furniture')}
-                        className={({ isActive }) =>
-                            isActive ? activeStyle : undefined
-                        }
-                    >
-                        Furnitures
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink
-                        to='/toys'
-                        onClick={() => context.setSearchByCategory('toys')}
-                        className={({ isActive }) =>
-                            isActive ? activeStyle : undefined
-                        }
-                    >
-                        Toys
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink
-                        to='/others'
-                        onClick={() => context.setSearchByCategory('others')}
-                        className={({ isActive }) =>
-                            isActive ? activeStyle : undefined
-                        }
-                    >
-                        Others
-                    </NavLink>
-                </li>
+                {renderCategories()}
             </ul>
             <ul className="flex items-center gap-5">
                 {renderView()}
-                <li onClick={() => context.openCheckoutSideMenu()} className="flex items-center gap-3 cursor-pointer">
-                    <ShoppingCart />
-                </li>
             </ul>
         </nav>
     )
