@@ -53,7 +53,7 @@ function Navbar() {
                             Jona<span className="text-indigo-600">Store</span>
                         </NavLink>
                     </li>
-                    <li className="mt-1 max-md:hidden font-medium ms-2 text-gray-600">
+                    <li className="mt-1 max-md:hidden font-medium ms-2 tracking-wider text-gray-600">
                         <NavLink
                             to='/all'
                             onClick={() => context.setSearchByCategory()}
@@ -64,7 +64,7 @@ function Navbar() {
                             All
                         </NavLink>
                     </li>
-                    <li className="mt-1 max-md:hidden font-medium ms-2 text-gray-600">
+                    <li className="mt-1 max-md:hidden font-medium ms-2 tracking-wider text-gray-600">
                         <NavLink
                             to='/clothes'
                             onClick={() => context.setSearchByCategory('clothes')}
@@ -75,7 +75,7 @@ function Navbar() {
                             Clothes
                         </NavLink>
                     </li> 
-                    <li className="mt-1 max-md:hidden font-medium ms-2 text-gray-600">
+                    <li className="mt-1 max-md:hidden font-medium ms-2 tracking-wider text-gray-600">
                         <NavLink
                             to='/electronics'
                             onClick={() => context.setSearchByCategory('electronics')}
@@ -97,7 +97,7 @@ function Navbar() {
                             Furnitures
                         </NavLink>
                     </li>
-                    <li className="mt-1 max-md:hidden font-medium ms-2 text-gray-600">
+                    <li className="mt-1 max-md:hidden font-medium ms-2 tracking-wider text-gray-600">
                         <NavLink
                             to='/toys'
                             onClick={() => context.setSearchByCategory('toys')}
@@ -108,7 +108,7 @@ function Navbar() {
                             Toys
                         </NavLink>
                     </li>
-                    <li className="mt-1 max-md:hidden font-medium ms-2 text-gray-600">
+                    <li className="mt-1 max-md:hidden font-medium ms-2 tracking-wider text-gray-600">
                         <NavLink
                             to='/others'
                             onClick={() => context.setSearchByCategory('others')}
@@ -139,10 +139,10 @@ function Navbar() {
         if (hasUserAnAccount && !isUserSignOut) {
             return (
                 <>
-                    <li className="text-black/60 max-md:hidden">
+                    <li className="text-black/50 max-md:hidden italic">
                         {parsedAccount?.email}
                     </li>
-                    <li className="max-md:hidden ms-2 font-medium text-gray-600">
+                    <li className="max-md:hidden ms-2 tracking-wider font-medium text-gray-600">
                         <NavLink
                             to='/my-orders'
                             className={({ isActive }) =>
@@ -152,7 +152,7 @@ function Navbar() {
                             My Orders
                         </NavLink>
                     </li>
-                    <li className="max-md:hidden ms-2 font-medium text-gray-600">
+                    <li className="max-md:hidden ms-2 tracking-wider font-medium text-gray-600">
                         <NavLink
                             to='/my-account'
                             className={({ isActive }) =>
@@ -162,7 +162,7 @@ function Navbar() {
                             My Account
                         </NavLink>
                     </li>
-                    <li className="max-md:hidden ms-2 font-medium text-gray-600">
+                    <li className="max-md:hidden ms-2 tracking-wider font-medium text-gray-600">
                         <NavLink
                             to='/sign-in'
                             className={({ isActive }) =>
