@@ -6,7 +6,7 @@ import { Bars3Icon } from "@heroicons/react/24/solid";
 
 function Navbar() {
     const context = useContext(ShoppingCartContext)
-    const activeStyle = 'underline underline-offset-8';
+    const activeStyle = 'underline underline-offset-8 text-indigo-600';
 
     // Sign Out
     const signOut = localStorage.getItem('sign-out')
@@ -53,7 +53,7 @@ function Navbar() {
                             Jona<span className="text-indigo-600">Store</span>
                         </NavLink>
                     </li>
-                    <li className="mt-1 max-md:hidden">
+                    <li className="mt-1 max-md:hidden font-medium ms-2 text-gray-600">
                         <NavLink
                             to='/all'
                             onClick={() => context.setSearchByCategory()}
@@ -64,7 +64,7 @@ function Navbar() {
                             All
                         </NavLink>
                     </li>
-                    <li className="mt-1 max-md:hidden">
+                    <li className="mt-1 max-md:hidden font-medium ms-2 text-gray-600">
                         <NavLink
                             to='/clothes'
                             onClick={() => context.setSearchByCategory('clothes')}
@@ -74,8 +74,8 @@ function Navbar() {
                         >
                             Clothes
                         </NavLink>
-                    </li>
-                    <li className="mt-1 max-md:hidden">
+                    </li> 
+                    <li className="mt-1 max-md:hidden font-medium ms-2 text-gray-600">
                         <NavLink
                             to='/electronics'
                             onClick={() => context.setSearchByCategory('electronics')}
@@ -86,7 +86,7 @@ function Navbar() {
                             Electronics
                         </NavLink>
                     </li>
-                    <li className="mt-1 max-md:hidden">
+                    <li className="mt-1 max-md:hidden font-medium ms-2 text-gray-600">
                         <NavLink
                             to='/furniture'
                             onClick={() => context.setSearchByCategory('furniture')}
@@ -97,7 +97,7 @@ function Navbar() {
                             Furnitures
                         </NavLink>
                     </li>
-                    <li className="mt-1 max-md:hidden">
+                    <li className="mt-1 max-md:hidden font-medium ms-2 text-gray-600">
                         <NavLink
                             to='/toys'
                             onClick={() => context.setSearchByCategory('toys')}
@@ -108,7 +108,7 @@ function Navbar() {
                             Toys
                         </NavLink>
                     </li>
-                    <li className="mt-1 max-md:hidden">
+                    <li className="mt-1 max-md:hidden font-medium ms-2 text-gray-600">
                         <NavLink
                             to='/others'
                             onClick={() => context.setSearchByCategory('others')}
@@ -142,7 +142,7 @@ function Navbar() {
                     <li className="text-black/60 max-md:hidden">
                         {parsedAccount?.email}
                     </li>
-                    <li className="max-md:hidden">
+                    <li className="max-md:hidden ms-2 font-medium text-gray-600">
                         <NavLink
                             to='/my-orders'
                             className={({ isActive }) =>
@@ -152,7 +152,7 @@ function Navbar() {
                             My Orders
                         </NavLink>
                     </li>
-                    <li className="max-md:hidden">
+                    <li className="max-md:hidden ms-2 font-medium text-gray-600">
                         <NavLink
                             to='/my-account'
                             className={({ isActive }) =>
@@ -162,7 +162,7 @@ function Navbar() {
                             My Account
                         </NavLink>
                     </li>
-                    <li className="max-md:hidden">
+                    <li className="max-md:hidden ms-2 font-medium text-gray-600">
                         <NavLink
                             to='/sign-in'
                             className={({ isActive }) =>
@@ -176,7 +176,7 @@ function Navbar() {
                     <li className="flex items-center gap-3 cursor-pointer md:hidden">
                         <Bars3Icon className="w-6 h-6 text-black" />
                     </li>
-                    <li onClick={() => context.openCheckoutSideMenu()} className="flex items-center gap-3 cursor-pointer">
+                    <li onClick={() => context.openCheckoutSideMenu()} className="flex ms-2 items-center gap-3 cursor-pointer">
                         <ShoppingCart />
                     </li>
                 </>
