@@ -186,7 +186,7 @@ function Navbar() {
                 <li>
                     <NavLink
                         to='/sign-in'
-                        className='bg-black text-white p-2 rounded-lg px-3'
+                        className='bg-indigo-600 text-white p-2 rounded-lg px-3'
                         onClick={() => handleSignOut()}
                     >
                         Sign in

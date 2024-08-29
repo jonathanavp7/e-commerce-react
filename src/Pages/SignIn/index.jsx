@@ -160,7 +160,7 @@ function SignIn() {
 
   return (
     <Layout>
-      <h1 className="font-normal text-xl text-center py-4 mb-6 w-80"><span className='font-bold'>Welcome!</span> Log in to get started...</h1>
+      <h1 className="font-normal text-xl text-center py-4 mb-6 w-80"><span className='font-bold'>Welc<span className='text-indigo-600'>ome!</span></span> Log in to get started...</h1>
       {renderView()}
     </Layout>
   )
